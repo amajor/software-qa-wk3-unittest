@@ -21,9 +21,7 @@ class WeatherClient:
         return result_json['weather'][0]['description']
 
     def get_15day_forecast_by_zip(self, zip_code):
-
-
-if __name__ == '__main__':
-    weather_client = WeatherClient()
-    weather = weather_client.get_weather_by_zip(zip_code='60564')
-    print(weather)
+        if __name__ == '__main__':
+            weather_client = WeatherClient()
+            weather = weather_client.get_weather_by_zip(zip_code='60564')
+            print(weather)
