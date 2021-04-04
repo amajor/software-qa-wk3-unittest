@@ -1,11 +1,12 @@
 import requests
 import json
 
+
 class WeatherClient:
     API_BASE_URL = 'http://samples.openweathermap.org/data/2.5/weather'
     APP_ID = 'appid=b6907d289e10d714a6e88b30761fae22'
 
-    def __init__(self, appid = APP_ID):
+    def __init__(self, appid=APP_ID):
         self.app_id = appid
 
     def get_weather_by_zip(self, zip_code):
@@ -20,8 +21,6 @@ class WeatherClient:
         result_json = json.loads(res.content.decode())
         return result_json['weather'][0]['description']
 
-    def get_15day_forecast_by_zip(self, zip_code):
-        if __name__ == '__main__':
-            weather_client = WeatherClient()
-            weather = weather_client.get_weather_by_zip(zip_code='60564')
-            print(weather)
+    # def get_15day_forecast_by_zip(self, zip_code):
+    #     This function was not implemented
+    #     Removed per recommendation in lecture for "python-unittest"
