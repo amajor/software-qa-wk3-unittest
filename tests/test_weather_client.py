@@ -16,9 +16,9 @@ class TestWeatherClient(unittest.TestCase):
 
     # Patch in the response that "requests" module would return
     @patch('requests.get')
-    def test_get_weather_by_zip(self, mock_requests, sample_response=SAMPLE_RESPONSE):
+    def test_get_weather_by_zip(self, mock_requests):
         mock_requests.return_value.status_code = 200
-        mock_requests.return_value.content = sample_response
+        mock_requests.return_value.content = TestWeatherClient.SAMPLE_RESPONSE
 
         zipcode = "49464"
         expected = "sunny here!"
@@ -46,6 +46,7 @@ class TestWeatherClient(unittest.TestCase):
 
         result = self._weather.get_weather_by_zip(zipcode)
         self.assertEqual(expected, result)
+
 
 if __name__ == '__main__':
     unittest.main()
